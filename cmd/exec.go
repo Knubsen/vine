@@ -25,8 +25,8 @@ var execCmd = &cobra.Command{
 
 		for _, c := range config.Commands {
 			if utils.Contains(c.Aliases, alias) {
-				fmt.Printf("Command: %s\n", c.Command)
-				fmt.Printf("Aliases: %v\n", c.Aliases)
+				fmt.Printf(c.Command)
+				return
 			}
 		}
 	},
