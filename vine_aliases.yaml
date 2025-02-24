@@ -1,0 +1,11 @@
+commands:
+  - aliases:
+      - E
+      - e
+    command: cd c:/substE
+  - aliases:
+      - vm
+      - VM
+      - convm
+      - conVM
+    command: ./vine_scripts/connectVMSSH.sh
