@@ -9,6 +9,7 @@ import (
 func main() {
 	location := &models.Location{
 		Path:    "~/.vine/",
+		BashRC:  "~/.bashrc",
 		Scripts: "~/.vine/vine_scripts/",
 		Config:  "~/.vine/vine_aliases.yaml",
 	}
