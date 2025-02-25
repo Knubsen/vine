@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/Knubsen/vine/utils"
-	parser "github.com/Knubsen/vine/yml_parser"
+	"github.com/Knubsen/vine/internal/utils"
+	parser "github.com/Knubsen/vine/internal/yml_parser"
 	"github.com/spf13/cobra"
 )
 

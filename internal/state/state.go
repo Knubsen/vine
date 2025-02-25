@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Knubsen/vine/models"
+	"github.com/Knubsen/vine/internal/models"
 )
 
 var Location *models.Location

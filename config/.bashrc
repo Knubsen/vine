@@ -4,18 +4,18 @@ eval "$(oh-my-posh init bash --config ~/.poshthemes/kali.omp.json)"
 
 # Vine stuff
 
-vine_path="C:/substE/projects/GoPaly/vine"
 vine_dir="$HOME/.vine/"
+vine_executable="$HOME/.vine/vine_aly"
 
 function vine() {
     if [[ "$1" == "-d" ]]; then
-        cd "$vine_path" || return 1
-        output=$(go run main.go exec "$2")
+        cd "$vine_dir" || return 1
+        output=$("$vine_executable" exec "$2")
         cd - > /dev/null
         eval "$output"
     elif [[ "$1" == "-e" ]]; then
-        cd "$vine_path" || return 1
-        output=$(go run main.go exec "$2")
+        cd "$vine_dir" || return 1
+        output=$(vine_aly exec "$2")
         cd - > /dev/null
         cd "$vine_dir"
         "$output"

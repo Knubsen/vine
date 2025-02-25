@@ -3,7 +3,7 @@ package parser
 import (
 	"fmt"
 
-	"github.com/Knubsen/vine/models"
+	"github.com/Knubsen/vine/internal/models"
 	"gopkg.in/yaml.v3"
 )
 

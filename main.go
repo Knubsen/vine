@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/Knubsen/vine/cmd"
-	"github.com/Knubsen/vine/models"
-	"github.com/Knubsen/vine/state"
+	"github.com/Knubsen/vine/internal/cmd"
+	"github.com/Knubsen/vine/internal/models"
+	"github.com/Knubsen/vine/internal/state"
 )
 
 func main() {

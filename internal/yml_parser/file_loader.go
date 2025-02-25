@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/Knubsen/vine/state"
+	"github.com/Knubsen/vine/internal/state"
 )
 
 func loadAliases() ([]byte, error) {
