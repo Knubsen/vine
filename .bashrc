@@ -1,19 +1,28 @@
 eval "$(oh-my-posh init bash --config ~/.poshthemes/kali.omp.json)"
 
+
+
+# Vine stuff
+
+vine_path="C:/substE/projects/GoPaly/vine"
+vine_dir="$HOME/.vine/"
+
 function vine() {
     if [[ "$1" == "-d" ]]; then
-        case "$2" in
-            e) cd /c/substE ;;
-            d) cd /c/substD ;; # Add more if needed
-            *) echo "Unknown drive: $(go run C:/substE/projects/GoPaly/vine exec inputtoecho)" ;;
-        esac
+        cd "$vine_path" || return 1
+        output=$(go run main.go exec "$2")
+        cd - > /dev/null
+        eval "$output"
     elif [[ "$1" == "-e" ]]; then
-        case "$2" in
-            vm) source ~/connectVM.sh;;
-            *) echo "ne" ;;
-        esac
+        cd "$vine_path" || return 1
+        output=$(go run main.go exec "$2")
+        cd - > /dev/null
+        cd "$vine_dir"
+        "$output"
+        cd - > /dev/null
     else
         echo "Usage: vine -d/-e <drive_letter/script>"
     fi
 }
 
+# ffuts eniV
