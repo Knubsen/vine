@@ -1,7 +1,3 @@
-eval "$(oh-my-posh init bash --config ~/.poshthemes/kali.omp.json)"
-
-
-
 # Vine stuff
 
 vine_dir="$HOME/.vine/"
@@ -9,19 +5,24 @@ vine_executable="$HOME/.vine/vine_aly"
 
 function vine() {
     if [[ "$1" == "-d" ]]; then
-        cd "$vine_dir" || return 1
         output=$("$vine_executable" exec "$2")
-        cd - > /dev/null
+        _cd_back
         eval "$output"
     elif [[ "$1" == "-e" ]]; then
-        cd "$vine_dir" || return 1
-        output=$(vine_aly exec "$2")
-        cd - > /dev/null
+        output=$("$vine_executable" exec "$2")
+        trap '_cd_back' INT
         cd "$vine_dir"
         "$output"
-        cd - > /dev/null
+        _cd_back
+        trap - INT
     else
         echo "Usage: vine -d/-e <drive_letter/script>"
+    fi
+}
+
+function _cd_back() {
+    if [[ -n "$OLDPWD" ]]; then
+        cd - > /dev/null
     fi
 }
 
