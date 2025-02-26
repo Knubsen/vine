@@ -17,13 +17,13 @@ var execCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		alias = args[0]
 
-		config, err := parser.GetConfig()
+		vault, err := parser.GetVault()
 		if err != nil {
 			fmt.Printf("Error: %e", err)
 			return
 		}
 
-		for _, c := range config.Commands {
+		for _, c := range vault.Commands {
 			if utils.Contains(c.Aliases, alias) {
 				fmt.Printf(c.Command)
 				return

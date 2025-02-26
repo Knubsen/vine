@@ -1,5 +1,5 @@
 package models
 
-type Config struct {
+type Vault struct {
 	Commands []Command `yaml:"commands"`
 }

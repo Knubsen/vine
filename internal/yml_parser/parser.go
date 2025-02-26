@@ -7,18 +7,18 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func GetConfig() (*models.Config, error) {
-	var config models.Config
+func GetVault() (*models.Vault, error) {
+	var vault models.Vault
 
 	yamlContent, err := loadAliases()
 	if err != nil {
 		return nil, fmt.Errorf("Error: %e", err)
 	}
 
-	err = yaml.Unmarshal([]byte(yamlContent), &config)
+	err = yaml.Unmarshal([]byte(yamlContent), &vault)
 	if err != nil {
 		return nil, fmt.Errorf("Error: %e", err)
 	}
 
-	return &config, nil
+	return &vault, nil
 }
