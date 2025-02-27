@@ -1,0 +1,8 @@
+{
+    "authconfig":
+    [
+        {"command": {"exec": "bash"}},
+        {"command": {"install": "user"}},
+        {"command": {"update": "user"}}
+    ]
+}

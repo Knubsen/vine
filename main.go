@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Knubsen/vine/internal/cmd"
+	"github.com/Knubsen/vine/cmd"
 	"github.com/Knubsen/vine/internal/models"
 	"github.com/Knubsen/vine/internal/state"
 )
