@@ -1,0 +1,7 @@
+{
+    "commands": {
+        "exec": "bash",
+        "install": "user",
+        "update": "user"
+    }
+}

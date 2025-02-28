@@ -5,4 +5,5 @@ type Location struct {
 	BashRC  string
 	Scripts string
 	Config  string
+	Auth    string
 }

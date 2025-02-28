@@ -19,6 +19,7 @@ func SetState(location *models.Location) {
 		Path:    strings.ReplaceAll(location.Path, "~", HomeDir),
 		BashRC:  strings.ReplaceAll(location.BashRC, "~", HomeDir),
 		Config:  strings.ReplaceAll(location.Config, "~", HomeDir),
+		Auth:    strings.ReplaceAll(location.Auth, "~", HomeDir),
 		Scripts: strings.ReplaceAll(location.Scripts, "~", HomeDir),
 	}
 }

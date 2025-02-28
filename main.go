@@ -11,6 +11,7 @@ func main() {
 		Path:    "~/.vine/",
 		BashRC:  "~/.bashrc",
 		Scripts: "~/.vine/vine_scripts/",
+		Auth:    "~/.vine/.auth/",
 		Config:  "~/.vine/vine_aliases.yaml",
 	}
 	state.SetState(location)

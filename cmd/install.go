@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
+	runauthorization "github.com/Knubsen/vine/internal/run_authorization"
 	"github.com/Knubsen/vine/internal/state"
 	"github.com/Knubsen/vine/internal/utils"
 	"github.com/spf13/cobra"
@@ -19,25 +20,29 @@ var installCmd = &cobra.Command{
 	Short: "installs vine",
 	Long:  "creates the necessary directories and adds the vine function to the .bashrc",
 	// Args:  cobra.ExactArgs(1),
-	Run: func(cmd *cobra.Command, args []string) {
-		lines, err := utils.ReadLines(state.Location.BashRC)
-		if err != nil {
-			fmt.Printf("Error reading the lines: %v", err)
-			return
-		}
+	Run: runauthorization.AuthRun(
+		func(cmd *cobra.Command, args []string) {
 
-		if checkForDelimiter(lines) {
-			fmt.Printf(".bashrc already contains vine\n")
-			return
-		}
+			runauthorization.SetAuthKey()
 
-		err = addVine()
-		if err != nil {
-			fmt.Printf("Error adding vine to .bashrc: %v", err)
-			return
-		}
-		fmt.Println("Vine added to .bashrc")
-	},
+			lines, err := utils.ReadLines(state.Location.BashRC)
+			if err != nil {
+				fmt.Printf("Error reading the lines: %v", err)
+				return
+			}
+
+			if checkForDelimiter(lines) {
+				fmt.Printf(".bashrc already contains vine\n")
+				return
+			}
+
+			err = addVine()
+			if err != nil {
+				fmt.Printf("Error adding vine to .bashrc: %v", err)
+				return
+			}
+			fmt.Println("Vine added to .bashrc")
+		}),
 }
 
 func addVine() error {
